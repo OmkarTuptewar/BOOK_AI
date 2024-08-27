@@ -13,7 +13,7 @@ body{
 .context {
     width: 100%;
     position: absolute;
-    /* z-index: -1; Ensure it is behind other content */
+   
   
     
 }
@@ -27,7 +27,7 @@ body{
 
 .area{
     background: #2d0358;  
-    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
+    background: -webkit-linear-gradient(to left, #8f94fb, #303699);  
     width: 100%;
     height:100vh;
     

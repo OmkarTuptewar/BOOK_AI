@@ -1,93 +1,91 @@
 import React from "react";
-import { Box, Flex, Text, Button, Link, HStack, Image, useColorMode, useColorModeValue, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, IconButton, Collapse } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
-import { MoonIcon, SunIcon, HamburgerIcon } from '@chakra-ui/icons';
+import { Box, Flex, Text, Button, HStack, Image, useColorMode, useColorModeValue, InputGroup, InputRightElement, Input } from "@chakra-ui/react";
+import { SearchIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
-  
-  const handleDrawerToggle = () => setIsDrawerOpen(!isDrawerOpen);
 
   return (
     <Box px={7} py={9}>
       <Flex alignItems="center" justify="space-between">
         {/* Logo */}
-        <HStack spacing={3}>
-          <Image
-           src="logo.png"
-            alt="BookAI Logo"
-            boxSize="45px"
+        <HStack spacing={5} align="center">
+  <Image
+    src="logo.png"
+    alt="Poetry Haven Logo"
+    boxSize="50px"
+    borderRadius="full"
+    boxShadow="xl"
+    border="2px solid"
+    borderColor={useColorModeValue("purple.500", "purple.300")}
+  />
+  <Text
+    color={useColorModeValue("purple.300", "purple.200")}
+    fontSize="36px"
+    fontWeight="bold"
+    letterSpacing="tight"
+    fontFamily="Georgia, serif"
+  >
+    Poetry Haven
+  </Text>
+</HStack>
+
+
+
+        {/* Search Poet Feature */}
+        <InputGroup maxW="400px" flex="1" mx={4}>
+          <Input
+            placeholder="Search Poet..."
+            borderRadius="md"
+            bg={useColorModeValue("white", "gray.700")}
+            color={useColorModeValue("black", "white")}
+            _placeholder={{ color: useColorModeValue("gray.500", "gray.400") }}
           />
-          <Text color={useColorModeValue("black", "white")} fontSize="30px" fontWeight="bold">
-            BookAI
-          </Text>
-        </HStack>
+          <InputRightElement>
+            <Button
+              size="sm"
+              bgGradient="linear(to-r, blue.400, purple.400)"
+              color="white"
+              _hover={{ bgGradient: "linear(to-r, blue.500, purple.500)" }}
+              borderRadius="md"
+            >
+              <SearchIcon />
+            </Button>
+          </InputRightElement>
+        </InputGroup>
 
-        {/* Responsive Drawer Icon */}
-        <IconButton
-          icon={<HamburgerIcon />}
-          aria-label="Open menu"
-          display={{ base: "block", md: "none" }}
-          onClick={handleDrawerToggle}
-        />
-
-        {/* Navigation Links */}
-        <Collapse in={{ base: isDrawerOpen, md: true }}>
-          <Flex
-            alignItems="center"
-            display={{ base: isDrawerOpen ? "flex" : "none", md: "flex" }}
-            direction={{ base: "column", md: "row" }}
-            width={{ base: "full", md: "auto" }}
-            mt={{ base: 4, md: 0 }}
-          >
-            <HStack spacing={8} fontSize="md" color={useColorModeValue("black", "white")}>
-              <Link as={RouterLink} to="/features">Features</Link>
-              <Link as={RouterLink} to="/how-it-works">How It Works</Link>
-              <Link as={RouterLink} to="/roadmap">Roadmap</Link>
-              <Link as={RouterLink} to="/api">API</Link>
-              <Link as={RouterLink} to="/price">Price</Link>
-              <Link as={RouterLink} to="/models">Models</Link>
-            </HStack>
-          </Flex>
-        </Collapse>
-
+        {/* Color Mode and Login/Sign Up */}
         <Flex alignItems="center">
           <Button variant='outline' onClick={toggleColorMode} colorScheme='teal' aria-label="Toggle color mode">
             {colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
           </Button>
           
           <Button
-            bgGradient="linear(to-r, blue.400, purple.400)"
-            color="white"
-            _hover={{ bgGradient: "linear(to-r, blue.500, purple.500)" }}
-            px={6}
-            py={2}
-            ml={4}
-          >
-            Login / Sign Up
-          </Button>
+  bgGradient="linear(to-r, blue.400, purple.400)"
+  color="white"
+  letterSpacing="tight"
+  fontWeight="bold"
+  fontSize="md"
+  borderRadius="full"
+  boxShadow="md"
+  _hover={{
+    bgGradient: "linear(to-r, blue.500, purple.500)",
+    boxShadow: "lg",
+    transform: "scale(1.05)",
+  }}
+  _active={{
+    bgGradient: "linear(to-r, blue.600, purple.600)",
+    transform: "scale(0.98)",
+  }}
+  px={8}
+  py={3}
+  ml={4}
+>
+  Subscribe
+</Button>
+
         </Flex>
       </Flex>
-
-      {/* Drawer for mobile view */}
-      <Drawer isOpen={isDrawerOpen} placement="top" onClose={handleDrawerToggle}>
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>Menu</DrawerHeader>
-          <DrawerBody>
-            <HStack spacing={8} fontSize="md" color={useColorModeValue("black", "white")} direction="column">
-              <Link as={RouterLink} to="/features">Features</Link>
-              <Link as={RouterLink} to="/how-it-works">How It Works</Link>
-              <Link as={RouterLink} to="/roadmap">Roadmap</Link>
-              <Link as={RouterLink} to="/api">API</Link>
-              <Link as={RouterLink} to="/price">Price</Link>
-              <Link as={RouterLink} to="/models">Models</Link>
-            </HStack>
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer>
     </Box>
   );
 };

@@ -14,17 +14,16 @@ const Background = () => {
       <div className="context">
     
         <Navbar/>
+        <br />
+        <br />
+      
+        
        
         <HeroSection/>
 
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+       
 
-        <Cards/>
+        {/* <Cards/> */}
        
        
     </div>

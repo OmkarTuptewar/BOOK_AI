@@ -8,9 +8,6 @@ const HeroSection = () => {
       color="white"
       py={20}
       px={4}
-     
-    
-      
     >
       <Heading
         as="h1"
@@ -18,16 +15,15 @@ const HeroSection = () => {
         fontWeight="bold"
         mb={4}
       >
-        Explore the Possibilities of{' '}
+        Welcome to{' '}
         <Text as="span" bgGradient="linear(to-r, purple.400, blue.500)" bgClip="text">
-          AI Book Writing
-        </Text>{' '}
-        with <Text as="span" textDecoration="underline">BookAI</Text>
+          Poetry Haven, Inc.
+        </Text>
       </Heading>
       <Text fontSize="lg" mb={8} color="gray.300">
-        Unleash the power of AI to create captivating books in minutes.
+        We are a digital media content company dedicated to becoming an international hub for poet enthusiasts around the world.
         <br />
-        Download, Distribute wherever you want. Generate unlimited free books.
+        Join us in celebrating the art of poetry and connecting with poets globally.
       </Text>
       <Button
         size="lg"
@@ -36,7 +32,7 @@ const HeroSection = () => {
         _hover={{ bgGradient: "linear(to-r, blue.500, purple.500)" }}
         mr={4}
       >
-        Get Started
+        Log In
       </Button>
       <Button
         size="lg"
@@ -44,7 +40,7 @@ const HeroSection = () => {
         bgGradient="linear(to-r, purple.400, purple.500)"
         _hover={{ bgGradient: "linear(to-r, purple.500, blue.500)" }}
       >
-        Get API Access
+        Create Account
       </Button>
     </Box>
   );
